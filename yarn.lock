@@ -1129,10 +1129,10 @@
   resolved "https://registry.yarnpkg.com/@bscswap/contracts/-/contracts-1.0.1.tgz#396b65ff26af746f86e991ab0dce0b77724e5974"
   integrity sha512-UIDqa9bTjM297ThqEAiKp5gvCC6HkdHoL0/JdE/t4wCZiJmWTyhul0FtRLGc28dQ51PcliZeiQQOqyGNgZ4Pnw==
 
-"@bscswap/default-token-list@1.3.8":
-  version "1.3.8"
-  resolved "https://registry.yarnpkg.com/@bscswap/default-token-list/-/default-token-list-1.3.8.tgz#129ccc28fb8c881d318919428e41f77f604dde25"
-  integrity sha512-CAGvA00rvCmA9C94CeYmgDlWs4dK3wo5/E0ARcV6DR/MDq1kjt/2jZgRP8M0ovYdLlZ1K1ucnlARW0CHjIFRbQ==
+"@bscswap/default-token-list@1.3.9":
+  version "1.3.9"
+  resolved "https://registry.yarnpkg.com/@bscswap/default-token-list/-/default-token-list-1.3.9.tgz#c79bfa7ed0a0f5204cd3daa37285e11767fa381b"
+  integrity sha512-MjUaJg/Od0fnwNOyBtJsKzsT8OtNNd4jWmnBRggBloD5yLLQG8gisbZFYSxLAV1/jU30gjCazu91ZGNG18EoQA==
 
 "@bscswap/sdk@3.0.14":
   version "3.0.14"
