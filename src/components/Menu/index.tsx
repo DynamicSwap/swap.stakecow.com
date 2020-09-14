@@ -1,11 +1,9 @@
 import React, { useRef } from 'react'
-import { BookOpen, Code, PieChart, MessageCircle } from 'react-feather'
+import { Info, DollarSign, Code, MessageCircle } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import useToggle from '../../hooks/useToggle'
-import { useActiveWeb3React } from '../../hooks'
-import { getEtherscanLink } from '../../utils'
 
 import { ExternalLink } from '../../theme'
 
@@ -80,12 +78,11 @@ const MenuItem = styled(ExternalLink)`
   }
 `
 
-const CODE_LINK = 'https://github.com/bscswap/contracts'
+const CODE_LINK = 'https://github.com/milk-protocol'
 
 export default function Menu() {
   const node = useRef<HTMLDivElement>()
   const [open, toggle] = useToggle(false)
-  const { chainId } = useActiveWeb3React()
 
   useOnClickOutside(node, open ? toggle : undefined)
 
@@ -95,23 +92,23 @@ export default function Menu() {
       <StyledMenuButton onClick={toggle}>
         <StyledMenuIcon />
       </StyledMenuButton>
-      {chainId && open && (
+      {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="https://bscswap.info/">
-            <PieChart size={14} />
-            Analytics
+          <MenuItem id="link" href="https://stakecow.com/about">
+            <Info size={14} />
+            About
           </MenuItem>
-          <MenuItem id="link" href="https://discord.gg/xjNuc56">
+          <MenuItem id="link" href="https://stakecow.com">
+            <DollarSign size={14} />
+            Stake
+          </MenuItem>
+          <MenuItem id="link" href="https://t.me/stakecow">
             <MessageCircle size={14} />
-            Discord
+            Telegram
           </MenuItem>
           <MenuItem id="link" href={CODE_LINK}>
             <Code size={14} />
             Code
-          </MenuItem>
-          <MenuItem id="link" href={getEtherscanLink(chainId, '0xd954551853F55deb4Ae31407c423e67B1621424A', 'address')}>
-            <BookOpen size={14} />
-            BscScan Contract
           </MenuItem>
         </MenuFlyout>
       )}
