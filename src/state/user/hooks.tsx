@@ -1,4 +1,4 @@
-import { ChainId, Pair, Token, Currency } from '@uniswap/sdk'
+import { ChainId, Pair, Token, Currency } from '@bscswap/sdk'
 import flatMap from 'lodash.flatmap'
 import { useCallback, useMemo } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
@@ -199,7 +199,7 @@ export function useTokenWarningDismissal(chainId?: number, token?: Currency): [b
  * @param tokenB the other token
  */
 export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
-  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'UNI-V2', 'Uniswap V2')
+  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'BLP', 'BSCswap LP Token')
 }
 
 /**
