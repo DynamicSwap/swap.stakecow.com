@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import useToggle from '../../hooks/useToggle'
+import { useActiveWeb3React } from '../../hooks'
+import { getEtherscanLink } from '../../utils'
 
 import { ExternalLink } from '../../theme'
 
@@ -83,6 +85,7 @@ const CODE_LINK = 'https://github.com/bscswap/contracts'
 export default function Menu() {
   const node = useRef<HTMLDivElement>()
   const [open, toggle] = useToggle(false)
+  const { chainId } = useActiveWeb3React()
 
   useOnClickOutside(node, open ? toggle : undefined)
 
@@ -92,7 +95,7 @@ export default function Menu() {
       <StyledMenuButton onClick={toggle}>
         <StyledMenuIcon />
       </StyledMenuButton>
-      {open && (
+      {chainId && open && (
         <MenuFlyout>
           <MenuItem id="link" href="https://bscswap.info/">
             <PieChart size={14} />
@@ -106,7 +109,7 @@ export default function Menu() {
             <Code size={14} />
             Code
           </MenuItem>
-          <MenuItem id="link" href="https://bscscan.com/address/0xd954551853F55deb4Ae31407c423e67B1621424A">
+          <MenuItem id="link" href={getEtherscanLink(chainId, '0xd954551853F55deb4Ae31407c423e67B1621424A', 'address')}>
             <BookOpen size={14} />
             BscScan Contract
           </MenuItem>
