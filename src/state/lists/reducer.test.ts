@@ -3,7 +3,7 @@ import { DEFAULT_LIST_OF_LISTS, DEFAULT_TOKEN_LIST_URL } from '../../constants/l
 import { updateVersion } from '../global/actions'
 import { fetchTokenList, acceptListUpdate, addList, removeList, selectList } from './actions'
 import reducer, { ListsState } from './reducer'
-import UNISWAP_DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
+import UNISWAP_DEFAULT_TOKEN_LIST from '@bscswap/default-token-list'
 
 const STUB_TOKEN_LIST = {
   name: '',
@@ -415,13 +415,13 @@ describe('list reducer', () => {
       beforeEach(() => {
         store = createStore(reducer, {
           byUrl: {
-            'https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json': {
+            'https://unpkg.com/@bscswap/default-token-list@latest/tokens.json': {
               error: null,
               current: STUB_TOKEN_LIST,
               loadingRequestId: null,
               pendingUpdate: null
             },
-            'https://unpkg.com/@uniswap/default-token-list@latest': {
+            'https://unpkg.com/@bscswap/default-token-list@latest': {
               error: null,
               current: STUB_TOKEN_LIST,
               loadingRequestId: null,
@@ -435,9 +435,9 @@ describe('list reducer', () => {
 
       it('clears the current lists', () => {
         expect(
-          store.getState().byUrl['https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json']
+          store.getState().byUrl['https://unpkg.com/@bscswap/default-token-list@latest/tokens.json']
         ).toBeUndefined()
-        expect(store.getState().byUrl['https://unpkg.com/@uniswap/default-token-list@latest']).toBeUndefined()
+        expect(store.getState().byUrl['https://unpkg.com/@bscswap/default-token-list@latest']).toBeUndefined()
       })
 
       it('puts in all the new lists', () => {
@@ -471,13 +471,13 @@ describe('list reducer', () => {
       beforeEach(() => {
         store = createStore(reducer, {
           byUrl: {
-            'https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json': {
+            'https://unpkg.com/@bscswap/default-token-list@latest/tokens.json': {
               error: null,
               current: STUB_TOKEN_LIST,
               loadingRequestId: null,
               pendingUpdate: null
             },
-            'https://unpkg.com/@uniswap/default-token-list@latest': {
+            'https://unpkg.com/@bscswap/default-token-list@latest': {
               error: null,
               current: STUB_TOKEN_LIST,
               loadingRequestId: null,
@@ -485,14 +485,14 @@ describe('list reducer', () => {
             }
           },
           selectedListUrl: undefined,
-          lastInitializedDefaultListOfLists: ['https://unpkg.com/@uniswap/default-token-list@latest']
+          lastInitializedDefaultListOfLists: ['https://unpkg.com/@bscswap/default-token-list@latest']
         })
         store.dispatch(updateVersion())
       })
 
       it('does not remove lists not in last initialized list of lists', () => {
         expect(
-          store.getState().byUrl['https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json']
+          store.getState().byUrl['https://unpkg.com/@bscswap/default-token-list@latest/tokens.json']
         ).toEqual({
           error: null,
           current: STUB_TOKEN_LIST,
@@ -501,7 +501,7 @@ describe('list reducer', () => {
         })
       })
       it('removes lists in the last initialized list of lists', () => {
-        expect(store.getState().byUrl['https://unpkg.com/@uniswap/default-token-list@latest']).toBeUndefined()
+        expect(store.getState().byUrl['https://unpkg.com/@bscswap/default-token-list@latest']).toBeUndefined()
       })
 
       it('adds all the lists in the default list of lists', () => {
@@ -513,7 +513,7 @@ describe('list reducer', () => {
         // note we don't expect the uniswap default list to be prepopulated
         // this is ok.
         Object.keys(byUrl).forEach(url => {
-          if (url !== 'https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json') {
+          if (url !== 'https://unpkg.com/@bscswap/default-token-list@latest/tokens.json') {
             expect(byUrl[url]).toEqual({
               error: null,
               current: null,

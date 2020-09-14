@@ -1,6 +1,6 @@
 import { TransactionResponse } from '@ethersproject/abstract-provider'
 import { AddressZero } from '@ethersproject/constants'
-import { Currency, CurrencyAmount, Fraction, JSBI, Percent, Token, TokenAmount, WETH } from '@uniswap/sdk'
+import { Currency, CurrencyAmount, Fraction, JSBI, Percent, Token, TokenAmount, WETH } from '@bscswap/sdk'
 import React, { useCallback, useMemo, useState } from 'react'
 import ReactGA from 'react-ga'
 import { Redirect, RouteComponentProps } from 'react-router'
@@ -67,7 +67,7 @@ export function V1LiquidityInfo({
         <div style={{ marginLeft: '.75rem' }}>
           <TYPE.mediumHeader>
             {<FormattedPoolCurrencyAmount currencyAmount={liquidityTokenAmount} />}{' '}
-            {chainId && token.equals(WETH[chainId]) ? 'WETH' : token.symbol}/ETH
+            {chainId && token.equals(WETH[chainId]) ? 'WETH' : token.symbol}/BNB
           </TYPE.mediumHeader>
         </div>
       </AutoRow>
@@ -219,26 +219,26 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
             <RowBetween>
               <TYPE.body>V1 Price:</TYPE.body>
               <TYPE.black>
-                {v1SpotPrice?.toSignificant(6)} {token.symbol}/ETH
+                {v1SpotPrice?.toSignificant(6)} {token.symbol}/BNB
               </TYPE.black>
             </RowBetween>
             <RowBetween>
               <div />
               <TYPE.black>
-                {v1SpotPrice?.invert()?.toSignificant(6)} ETH/{token.symbol}
+                {v1SpotPrice?.invert()?.toSignificant(6)} BNB/{token.symbol}
               </TYPE.black>
             </RowBetween>
 
             <RowBetween>
               <TYPE.body>V2 Price:</TYPE.body>
               <TYPE.black>
-                {v2SpotPrice?.toSignificant(6)} {token.symbol}/ETH
+                {v2SpotPrice?.toSignificant(6)} {token.symbol}/BNB
               </TYPE.black>
             </RowBetween>
             <RowBetween>
               <div />
               <TYPE.black>
-                {v2SpotPrice?.invert()?.toSignificant(6)} ETH/{token.symbol}
+                {v2SpotPrice?.invert()?.toSignificant(6)} BNB/{token.symbol}
               </TYPE.black>
             </RowBetween>
 
@@ -261,13 +261,13 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
             <RowBetween>
               <TYPE.body>V1 Price:</TYPE.body>
               <TYPE.black>
-                {v1SpotPrice?.toSignificant(6)} {token.symbol}/ETH
+                {v1SpotPrice?.toSignificant(6)} {token.symbol}/BNB
               </TYPE.black>
             </RowBetween>
             <RowBetween>
               <div />
               <TYPE.black>
-                {v1SpotPrice?.invert()?.toSignificant(6)} ETH/{token.symbol}
+                {v1SpotPrice?.invert()?.toSignificant(6)} BNB/{token.symbol}
               </TYPE.black>
             </RowBetween>
           </AutoColumn>
@@ -316,7 +316,7 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
         </div>
       </LightCard>
       <TYPE.darkGray style={{ textAlign: 'center' }}>
-        {`Your Uniswap V1 ${token.symbol}/ETH liquidity will become Uniswap V2 ${token.symbol}/ETH liquidity.`}
+        {`Your Uniswap V1 ${token.symbol}/BNB liquidity will become Uniswap V2 ${token.symbol}/BNB liquidity.`}
       </TYPE.darkGray>
     </AutoColumn>
   )

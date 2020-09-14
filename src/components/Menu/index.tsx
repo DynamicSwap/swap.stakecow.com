@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Info, BookOpen, Code, PieChart, MessageCircle } from 'react-feather'
+import { BookOpen, Code, PieChart, MessageCircle } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
@@ -78,7 +78,7 @@ const MenuItem = styled(ExternalLink)`
   }
 `
 
-const CODE_LINK = 'https://github.com/Uniswap/uniswap-interface'
+const CODE_LINK = 'https://github.com/bscswap/contracts'
 
 export default function Menu() {
   const node = useRef<HTMLDivElement>()
@@ -94,25 +94,21 @@ export default function Menu() {
       </StyledMenuButton>
       {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="https://uniswap.org/">
-            <Info size={14} />
-            About
+          <MenuItem id="link" href="https://bscswap.info/">
+            <PieChart size={14} />
+            Analytics
           </MenuItem>
-          <MenuItem id="link" href="https://uniswap.org/docs/v2">
-            <BookOpen size={14} />
-            Docs
+          <MenuItem id="link" href="https://discord.gg/xjNuc56">
+            <MessageCircle size={14} />
+            Discord
           </MenuItem>
           <MenuItem id="link" href={CODE_LINK}>
             <Code size={14} />
             Code
           </MenuItem>
-          <MenuItem id="link" href="https://discord.gg/EwFs3Pp">
-            <MessageCircle size={14} />
-            Discord
-          </MenuItem>
-          <MenuItem id="link" href="https://uniswap.info/">
-            <PieChart size={14} />
-            Analytics
+          <MenuItem id="link" href="https://bscscan.com/address/0xd954551853F55deb4Ae31407c423e67B1621424A">
+            <BookOpen size={14} />
+            BscScan Contract
           </MenuItem>
         </MenuFlyout>
       )}
