@@ -224,7 +224,7 @@ export default function FullPositionCard({ pair, border }: PositionCardProps) {
             </FixedHeightRow>
 
             <AutoRow justify="center" marginTop={'10px'}>
-              <ExternalLink href={`https://bscswap.info/pair/${pair.liquidityToken.address}`}>
+              <ExternalLink href={`https://bscscan.com/address/${pair.liquidityToken.address}`}>
                 View pool information ↗
               </ExternalLink>
             </AutoRow>
