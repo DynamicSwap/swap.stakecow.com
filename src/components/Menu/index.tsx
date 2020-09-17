@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import { BookOpen, Code, MessageCircle } from 'react-feather'
+import { BookOpen, Code, MessageCircle, Send } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import useToggle from '../../hooks/useToggle'
@@ -112,6 +112,10 @@ export default function Menu() {
       </StyledMenuButton>
       {chainId && open && (
         <MenuFlyout>
+          <MenuItem id="link" href="https://t.me/bscswap">
+            <Send size={14} />
+            Telegram
+          </MenuItem>
           <MenuItem id="link" href="https://discord.gg/xjNuc56">
             <MessageCircle size={14} />
             Discord
