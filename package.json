@@ -77,7 +77,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && copyfiles CNAME LICENSE README.md build/",
+    "build": "react-scripts build && copyfiles LICENSE README.md build/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
